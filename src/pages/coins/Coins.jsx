@@ -17,13 +17,13 @@ class Coins extends Component {
 
     filterCoinsListBySearch = (coinsList, search) => {
         return coinsList.filter(coin => coin.CoinName.toLowerCase().includes(search.toLowerCase()));
-    }
+    };
 
     render() {
         const { coinsList, search } = this.state;
         return (
             <>
-                <HeaderComponent title='All the Coins'></HeaderComponent>
+                <HeaderComponent mainTitle='All the Coins'></HeaderComponent>
                 <SearchComponent value={search} onChange={this.handlerSearchChange}></SearchComponent>
                 <div className = "CoinsList">
                     {this.filterCoinsListBySearch(coinsList, search).map(coin => ( 
