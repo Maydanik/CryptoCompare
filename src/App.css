@@ -1,0 +1,28 @@
+body {
+  background-color: lightgray;
+}
+
+.App { 
+  text-align: center;
+}
+
+.navigation {
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  background-color: lightblue;
+  margin-bottom: -20px;
+  border: 2px solid gray;
+}
+
+li {
+  list-style: none;
+  text-transform: uppercase;
+  padding-top: 40px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color:darkslategray;
+}
