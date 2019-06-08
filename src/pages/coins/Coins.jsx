@@ -3,15 +3,8 @@ import AllCoins from './coinsList.json';
 import HeaderComponent from '../../components/Header';
 import SearchComponent from '../../components/Search';
 import CoinCard from '../../components/CoinCard';
+// import CoinsList from '../../components/CoinsList';
 import './Coins.css';
-
-// const CoinsList = () => (
-//     <div>
-//         {Object.values(coinsList).map((coin) => {
-//             return <CoinCard coin={coin} name={coin.CoinName} path={coin.ImageUrl} key={coin.Id} />
-//         })}
-//     </div>
-// );
 
 class Coins extends Component {
     state = {
