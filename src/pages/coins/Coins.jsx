@@ -5,7 +5,6 @@ import SearchComponent from '../../components/Search';
 import CoinCard from '../../components/CoinCard';
 // import CoinsList from '../../components/CoinsList';
 import './Coins.css';
-
 class Coins extends Component {
     state = {
         coinsList: Object.keys(AllCoins.Data).slice(0, 21).map(key => AllCoins.Data[key]),
