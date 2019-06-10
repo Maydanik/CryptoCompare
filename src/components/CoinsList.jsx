@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CoinsList = () => (
+const CoinsList = (props) => (
     <div>
-        {Object.values(coinsList).map((coin) => {
+        {Object.values(props.coinsList).map((coin) => {
             return <CoinCard coin={coin} name={coin.CoinName} path={coin.ImageUrl} key={coin.Id} />
         })}
     </div>

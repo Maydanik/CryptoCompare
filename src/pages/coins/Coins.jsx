@@ -5,6 +5,7 @@ import SearchComponent from '../../components/Search';
 import CoinCard from '../../components/CoinCard';
 // import CoinsList from '../../components/CoinsList';
 import './Coins.css';
+// import { CLIENT_RENEG_LIMIT } from 'tls';
 class Coins extends Component {
     state = {
         coinsList: Object.keys(AllCoins.Data).slice(0, 21).map(key => AllCoins.Data[key]),
@@ -21,14 +22,15 @@ class Coins extends Component {
 
     render() {
         const { coinsList, search } = this.state;
+        
         return (
             <>
                 <HeaderComponent mainTitle='All the Coins'></HeaderComponent>
                 <SearchComponent value={search} onChange={this.handlerSearchChange}></SearchComponent>
                 <div className = "CoinsList">
-                    {this.filterCoinsListBySearch(coinsList, search).map(coin => ( 
+                    {this.filterCoinsListBySearch(coinsList, search).map(coin => { return
                         <CoinCard coin={coin} name={coin.CoinName} path={coin.ImageUrl} key={coin.Id}/>
-                    ))}
+                    })}
                 </div>
             </>
         )

@@ -13,7 +13,6 @@ CoinCard.propTypes = {
     coin: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired,
 };
 
 export default CoinCard;
