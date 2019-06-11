@@ -3,8 +3,7 @@ import './News.css';
 import TopNews from './newsTopList.json';
 import HeaderComponent from '../../components/Header';
 import SearchComponent from '../../components/Search';
-import NewsCard from '../../components/NewsCard';
-
+import NewsList from '../../components/NewsList';
 class News extends Component {
     state = {
         newsList: TopNews.Data,
@@ -25,11 +24,8 @@ class News extends Component {
             <>
                 <HeaderComponent mainTitle='Latest News Articles'></HeaderComponent>
                 <SearchComponent value={search} onChange={this.handlerSearchChange}></SearchComponent>
-                <div className = "NewsList">
-                    {this.filterNewsListBySearch(newsList, search).map(news => ( 
-                        <NewsCard news={news} title={news.title} path={news.imageurl} body={news.body} key={news.id}/>
-                    ))}
-                </div>
+                <NewsList newsList={newsList} search={search} filterNewsListBySearch={this.filterNewsListBySearch}></NewsList>
+
             </>
         )
     };

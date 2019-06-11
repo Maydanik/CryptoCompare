@@ -1,9 +1,10 @@
 import React from 'react';
+import CoinCard from '../components/CoinCard';
 
 const CoinsList = (props) => (
     <div>
-        {Object.values(props.coinsList).map((coin) => {
-            return <CoinCard coin={coin} name={coin.CoinName} path={coin.ImageUrl} key={coin.Id} />
+        {props.filterCoinsListBySearch(props.coinsList, props.search).map((coin) => {
+            return <CoinCard coin={coin} name={coin.CoinName} path={coin.ImageUrl} key={coin.Id}/>
         })}
     </div>
 );
