@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CRYPTO_COMPARE_URL from '../constants';
+import withLogProps from '../HOC/withLogProps';
 
 const CoinCard = (props) => (
     <div className="coinCard">
@@ -15,4 +16,4 @@ CoinCard.propTypes = {
     path: PropTypes.string.isRequired,
 };
 
-export default CoinCard;
+export default withLogProps(CoinCard);
