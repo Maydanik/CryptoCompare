@@ -22,10 +22,10 @@ test('Coins render correctly', () => {
   expect(component).toMatchSnapshot();
 });
 
-// test('Search should render correct amount of coins', () => {
-//     const component = mount(<Coins />);
-//     expect(component.find(CoinCard).length).toEqual(coinsList.length);
-//   });
+test('Search should render correct amount of coins', () => {
+    const component = mount(<CoinsList coinsList = {coinsList}/>);
+    expect(component.find(CoinCard).length).toEqual(coinsList.length);
+  });
   
   // test('Search should render correct amount of coins based on seach term', () => {
   //   const component = shallow(<Coins />);
