@@ -42,7 +42,7 @@ class Coins extends Component {
             <>
                 <HeaderComponent mainTitle='All the Coins'></HeaderComponent>
                 <SearchComponent value={search} onChange={this.handlerSearchChange}></SearchComponent>
-                <CoinsList coinsList={coinsList} search={search} filterCoinsListBySearch={this.filterCoinsListBySearch}></CoinsList>
+                <CoinsList coinsList={this.filterCoinsListBySearch(coinsList, search)}></CoinsList>
             </>
         )
     };
