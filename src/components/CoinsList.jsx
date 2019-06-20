@@ -1,6 +1,6 @@
 import React from 'react';
 import CoinCard from '../components/CoinCard';
-//import filterCoinsListBySearch from '../services/SearchFunction';
+//import filterCoinsListBySearch from '../services/FilterFunction';
 
 const CoinsList = (props) => (
     <div>

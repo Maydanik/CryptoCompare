@@ -7,6 +7,7 @@ import './Coins.css';
 
 class Coins extends Component {
     state = {
+        //for data which save in file
         // coinsList: Object.keys(AllCoins.Data).slice(0, 21).map(key => AllCoins.Data[key]),
         coinsList: [],
         search: '',
