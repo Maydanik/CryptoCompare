@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import AllCoins from './coinsList.json';
 import HeaderComponent from '../../components/Header';
 import SearchComponent from '../../components/Search';
 import CoinsList from '../../components/CoinsList';
