@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561248246901" clover="3.2.0">
-  <project timestamp="1561248246901" name="All files">
-    <metrics statements="11" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="4" elements="20" coveredelements="11" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
-    <file name="Coins.jsx" path="C:\Users\Acer\Desktop\Easy_Code_Tatyana\Easy_Code_React\CryptoCompare\src\pages\coins\Coins.jsx">
-      <metrics statements="11" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="4"/>
-      <line num="9" count="4" type="stmt"/>
-      <line num="16" count="4" type="stmt"/>
-      <line num="20" count="0" type="stmt"/>
-      <line num="23" count="0" type="stmt"/>
-      <line num="26" count="0" type="stmt"/>
-      <line num="30" count="4" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
-      <line num="34" count="4" type="stmt"/>
-      <line num="35" count="21" type="stmt"/>
-      <line num="39" count="4" type="stmt"/>
-      <line num="41" count="4" type="stmt"/>
-    </file>
+<coverage generated="1561251895610" clover="3.2.0">
+  <project timestamp="1561251895610" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>

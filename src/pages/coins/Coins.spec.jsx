@@ -67,7 +67,15 @@ test('Returns the props object', () => {
 
 test('Check function handlerSearchChange', () => {
   const component = shallow(<Coins />);
-  component.handlerSearchChange = jest.fn()
+  component.instance().handlerSearchChange = jest.fn()
   .mockReturnValue('808');
-  expect(component.handlerSearchChange().calls === 1);
+  expect(component.instance().handlerSearchChange().calls === 1);
+});
+
+test('the data is peanut butter', async () => {
+  const component = shallow(<Coins />);
+  component.instance().componentDidMount = jest.fn()
+  .mockReturnValue(coinsList);
+  const data = await component.instance().componentDidMount();
+  expect(data).toBe(coinsList);
 });
