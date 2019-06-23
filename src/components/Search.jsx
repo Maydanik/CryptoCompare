@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchComponent = (props) => (
     <div>
-        <span>Search</span>
+        <span className = 'search'>Search</span>
         <input
             type='text'
             name='search'

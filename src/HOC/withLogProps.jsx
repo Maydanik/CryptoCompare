@@ -10,7 +10,7 @@ function withLogProps(WrappedComponent) {
 
         render() {
 
-            if (this.props.name.length < 8) {
+            if (this.props.coin.CoinName.length < 8) {
                 return <>
                     <WrappedComponent {...this.props} />
                     <img className='star' src={'http://www.webweaver.nu/clipart/img/nature/planets/smiling-gold-star.png'} width='30' height='30' alt={'star'} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 import Landing from './pages/landing/Landing';
 import Coins from './pages/coins/Coins';
@@ -8,44 +8,68 @@ import News from './pages/news/News';
 import TopExchanges from './pages/topExchanges/TopExchanges';
 import ForOFor from './pages/404/ForOFor';
 import './App.css';
-// import logo from './logo.svg';
+import CoinCard from './components/CoinCard';
+class App extends Component {
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <nav className="navigation">
-          <li>
-            <NavLink to="/" activeClassName="active">Landing</NavLink>
-          </li>
-          <li>
-            <NavLink to="/coins" activeClassName="active">Coins</NavLink>
-          </li>
-          <li>
-            <NavLink to="/converter" activeClassName="active">Converter</NavLink>
-          </li>
-          <li>
-          <NavLink to="/history" activeClassName="active">History</NavLink>
-          </li>
-          <li>
-          <NavLink to="/news" activeClassName="active">News</NavLink>
-          </li>
-          <li>
-          <NavLink to="/top-exchanges" activeClassName="active">Top-Exchanges</NavLink>
-          </li>
-        </nav>
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/coins" component={Coins} />
-          <Route path="/converter" component={Converter} />
-          <Route path="/history" component={History} />
-          <Route path="/news" component={News} />
-          <Route path="/top-exchanges" component={TopExchanges} />
-          <Route component={ForOFor} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+  state = {
+    coinsList: [],
+  };
+
+  filterListById = (list, id) => (
+    list.find(coin => coin.Id === id)
   );
-}
 
+  componentDidMount() {
+    fetch('https://min-api.cryptocompare.com/data/all/coinlist')
+      .then(responce => responce.json())
+      .then(responce => this.setState({ coinsList: Object.keys(responce.Data).slice(0, 21).map(key => responce.Data[key]) }))
+      .catch(err => alert(err));
+  }
+
+  render() {
+    const { coinsList } = this.state;
+
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <nav className="navigation">
+            <li>
+              <NavLink to="/" activeClassName="active">Landing</NavLink>
+            </li>
+            <li>
+              <NavLink to="/coins" activeClassName="active">Coins</NavLink>
+            </li>
+            <li>
+              <NavLink to="/converter" activeClassName="active">Converter</NavLink>
+            </li>
+            <li>
+              <NavLink to="/history" activeClassName="active">History</NavLink>
+            </li>
+            <li>
+              <NavLink to="/news" activeClassName="active">News</NavLink>
+            </li>
+            <li>
+              <NavLink to="/top-exchanges" activeClassName="active">Top-Exchanges</NavLink>
+            </li>
+          </nav>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/coins" component={props => <Coins {...props} coinsList={coinsList} />} />
+            <Route
+              path="/coins/:id"
+              component={props => (
+                <CoinCard {...props} coin={this.filterListById(coinsList, props.match.params.id)} />
+              )}
+            />
+            <Route path="/converter" component={Converter} />
+            <Route path="/history" component={History} />
+            <Route path="/news" component={News} />
+            <Route path="/top-exchanges" component={TopExchanges} />
+            <Route component={ForOFor} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
 export default App;
