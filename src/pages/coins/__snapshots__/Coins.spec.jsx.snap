@@ -3,3 +3,11 @@
 exports[`Coins render correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Coins render correctly 2`] = `ShallowWrapper {}`;
+
+exports[`CoinsCard render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`CoinsList render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Header render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`SearchComponent render correctly 1`] = `ShallowWrapper {}`;

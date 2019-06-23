@@ -5,6 +5,8 @@ import { mount } from 'enzyme';
 import AllCoins from './coinsList.json';
 import CoinCard from '../../components/CoinCard';
 import CoinsList from '../../components/CoinsList';
+import HeaderComponent from '../../components/Header';
+import SearchComponent from '../../components/Search';
 
 const coinsList= Object.keys(AllCoins.Data).slice(0, 21).map(key => AllCoins.Data[key]);
 
@@ -17,20 +19,55 @@ test('Coins render correctly', () => {
     expect(component).toMatchSnapshot();
 });
 
-test('Coins render correctly', () => {
+test('CoinsCard render correctly', () => {
   const component = shallow(<CoinCard />);
   expect(component).toMatchSnapshot();
 });
 
+test('Header render correctly', () => {
+  const component = shallow(<HeaderComponent />);
+  expect(component).toMatchSnapshot();
+});
+
+test('SearchComponent render correctly', () => {
+  const component = shallow(<SearchComponent />);
+  expect(component).toMatchSnapshot();
+});
+
+test('CoinsList render correctly', () => {
+  const component = shallow(<CoinsList coinsList = {coinsList}/>);
+  expect(component).toMatchSnapshot();
+});
+
 test('Search should render correct amount of coins', () => {
-    const component = mount(<CoinsList coinsList = {coinsList}/>);
+    const component = shallow(<CoinsList coinsList = {coinsList}/>);
     expect(component.find(CoinCard).length).toEqual(coinsList.length);
   });
   
-  // test('Search should render correct amount of coins based on seach term', () => {
-  //   const component = shallow(<Coins />);
-  //   const searchTerm = 'bitcoin';
-  //   component.find('input').simulate('change', { target: { value: searchTerm } });
-  //   const searchCount = component.instance().filterCoinsListBySearch(coinsList, searchTerm).length;
-  //   expect(component.find(CoinCard).length).toEqual(searchCount);
-  // });
+test('Search should render correct amount of coins based on seach term', () => {
+  const component = shallow(<Coins />);
+  const searchTerm = '808';
+  const searchList = component.instance().filterCoinsListBySearch(coinsList, searchTerm);
+  const searchCount = searchList.length;
+  const component2 = shallow(<CoinsList coinsList = {searchList}/>);
+  expect(component2.find(CoinCard).length).toEqual(searchCount);
+});
+
+test('Search all nodes in the wrapper', () => {
+  const component = mount(<Coins />);
+  expect(component.exists(CoinsList)).toEqual(true);
+  expect(component.exists('.headerComponent')).toEqual(true);
+  expect(component.exists(SearchComponent)).toEqual(true);
+});
+
+test('Returns the props object', () => {
+  const component = mount(<HeaderComponent mainTitle='All the Coins' />);
+  expect(component.props().mainTitle).toEqual('All the Coins');
+});
+
+test('Check function handlerSearchChange', () => {
+  const component = shallow(<Coins />);
+  component.handlerSearchChange = jest.fn()
+  .mockReturnValue('808');
+  expect(component.handlerSearchChange().calls === 1);
+});
